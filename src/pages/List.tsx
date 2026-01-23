@@ -55,6 +55,9 @@ function ListPage() {
                 Name
               </th>
               <th className="px-4 py-2 border border-gray-300 text-center">
+                Credit
+              </th>
+              <th className="px-4 py-2 border border-gray-300 text-center">
                 Category
               </th>
               <th className="px-4 py-2 border border-gray-300 text-center">
@@ -76,6 +79,9 @@ function ListPage() {
                   {item.name}
                 </td>
                 <td className="px-4 py-2 border border-gray-300 text-center">
+                  {item.credit}
+                </td>
+                <td className="px-4 py-2 border border-gray-300 text-center">
                   {item.category}
                 </td>
                 <td className="px-4 py-2 border border-gray-300 text-center">
@@ -83,12 +89,11 @@ function ListPage() {
                 </td>
                 <td className="px-4 py-2 border border-gray-300">
                   <div className="flex justify-center gap-2">
-                    <Link
-                      to="#"
-                      className="px-3 py-1 bg-blue-600 text-white rounded"
-                    >
-                      Edit
-                    </Link>
+                  <Link
+                    to={`/edit/${item.id}`}
+                      className="px-3 py-1 bg-blue-600 text-white rounded">
+                    Edit
+                  </Link>
                     <button
                       onClick={() => handleDelete(item.id)}
                       className="px-3 py-1 bg-red-600 text-white rounded"

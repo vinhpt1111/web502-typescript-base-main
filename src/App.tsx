@@ -43,6 +43,7 @@ function App() {
         <Routes>
           <Route path="/list" element={<ListPage />}></Route>
           <Route path="add" element={<AddPage />}></Route>
+          <Route path="/edit/:id" element={<AddPage />} />
         </Routes>
       </div>
 
