@@ -1,74 +1,39 @@
 {
   "courses": [
     {
-      "id": 1,
-      "name": "ReactJS Cơ Bản",
-      "credit": 3,
-      "category": "Chuyên ngành",
-      "teacher": "Nguyễn Văn A"
-    },
-    {
-      "id": 2,
-      "name": "TypeScript",
-      "credit": 2,
-      "category": "Chuyên ngành",
-      "teacher": "Trần Thị B"
-    },
-    {
-      "id": 3,
-      "name": "Cấu trúc dữ liệu",
-      "credit": 3,
-      "category": "Cơ sở",
-      "teacher": "Lê Văn C"
-    },
-    {
-      "id": 4,
-      "name": "Lập trình C",
-      "credit": 4,
-      "category": "Đại cương",
-      "teacher": "Phạm Văn D"
-    },
-    {
-      "name": "Iphone 16",
-      "credit": "111",
-      "category": "Cơ sở",
-      "teacher": "1132",
-      "id": 5
-    },
-    {
-      "name": "Iphone 16",
-      "credit": "111",
-      "category": "Cơ sở",
-      "teacher": "1132",
-      "id": 6
-    },
-    {
       "name": "Phạm Thế Vinh",
-      "credit": "1111111",
-      "category": "Cơ sở",
+      "credit": 30000,
+      "category": "IT",
       "teacher": "BBBB",
-      "id": 7
+      "id": 1
     },
     {
-      "name": "q",
-      "credit": "111",
-      "category": "Cơ sở",
-      "teacher": "111",
-      "id": 8
+      "name": "hai lan",
+      "credit": 3,
+      "category": "Digital Marketing",
+      "teacher": "Nguyễn Văn A",
+      "id": 2
     },
     {
-      "name": "Iphone 16",
-      "credit": 1111,
-      "category": "Cơ sở",
-      "teacher": "BBBB",
-      "id": 9
+      "name": "Nông Thị Ma",
+      "credit": 3,
+      "category": "Marketing Sale",
+      "teacher": "Nguyễn Văn An",
+      "id": 3
     },
     {
-      "name": "Iphone 16",
-      "credit": 1111,
-      "category": "Cơ sở",
-      "teacher": "1111",
-      "id": 10
+      "name": "Lò A Sái",
+      "credit": 4,
+      "category": "Marketing Sale",
+      "teacher": "Nguyễn Văn An",
+      "id": 4
+    },
+    {
+      "name": "Lò A Sinh",
+      "credit": 4,
+      "category": "Marketing Sale",
+      "teacher": "Nguyễn Văn An",
+      "id": 5
     }
   ]
 }

@@ -13,11 +13,11 @@ type FormValues = {
   teacher: string;
 };
 
-const validate = z.object({
-  name: z.string().min(3, "Name phải trên 3 ký tự"),
-  credit: z.number().min(1, "Credit phải > 0"),
+const schema = z.object({
+  name: z.string().min(3, "Name > 3 ký tự"),
+  credit: z.number().min(1, "Credit > 0"),
   category: z.string().nonempty("Chọn category"),
-  teacher: z.string().min(3, "Teacher phải trên 3 ký tự"),
+  teacher: z.string().min(3, "Teacher > 3 ký tự"),
 });
 
 function AddPage() {
@@ -30,94 +30,52 @@ function AddPage() {
     reset,
     formState: { errors },
   } = useForm<FormValues>({
-    resolver: zodResolver(validate),
+    resolver: zodResolver(schema),
   });
 
   useEffect(() => {
-    const getDetail = async () => {
-      try {
-        const { data } = await axios.get(
-          `http://localhost:3000/courses/${id}`
-        );
-        reset(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    if (id) getDetail();
+    if (!id) return;
+    axios.get(`http://localhost:3000/courses/${id}`)
+      .then(res => reset(res.data))
+      .catch(console.log);
   }, [id, reset]);
 
-  const onSubmit = async (values: FormValues) => {
+  const onSubmit = async (data: FormValues) => {
     try {
-      if (id) {
-        await axios.put(`http://localhost:3000/courses/${id}`, values);
-      } else {
-        await axios.post("http://localhost:3000/courses", values);
-      }
-      toast.success("Thành công");
+      id
+        ? await axios.put(`http://localhost:3000/courses/${id}`, data)
+        : await axios.post("http://localhost:3000/courses", data);
+
+      toast.success(id ? "Cập nhật thành công" : "Thêm thành công");
       nav("/list");
-    } catch (error) {
-      toast.error("Thất bại: " + (error as AxiosError).message);
+    } catch (err) {
+      toast.error("Lỗi: " + (err as AxiosError).message);
     }
   };
 
   return (
-    <div className="p-6 max-w-xl">
-      <h1 className="text-2xl font-semibold mb-6">
-        {id ? "Cập nhật" : "Thêm mới"}
-      </h1>
+    <form onSubmit={handleSubmit(onSubmit)} className="p-6 max-w-xl space-y-4">
+      <input {...register("name")} placeholder="Name" className="border p-2 w-full" />
+      <p className="text-red-500">{errors.name?.message}</p>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-        <div>
-          <label className="block font-medium mb-1">Name</label>
-          <input
-            {...register("name")}
-            className="w-full border rounded-lg px-3 py-2"
-          />
-          <p className="text-red-500 text-sm">{errors.name?.message}</p>
-        </div>
+      <input type="number" {...register("credit", { valueAsNumber: true })} placeholder="Credit" className="border p-2 w-full" />
+      <p className="text-red-500">{errors.credit?.message}</p>
 
-        <div>
-          <label className="block font-medium mb-1">Credit</label>
-          <input
-            type="number"
-            {...register("credit", { valueAsNumber: true })}
-            className="w-full border rounded-lg px-3 py-2"
-          />
-          <p className="text-red-500 text-sm">{errors.credit?.message}</p>
-        </div>
+      <select {...register("category")} className="border p-2 w-full">
+        <option value="">-- Chuyên ngành --</option>
+        <option value="IT">IT</option>
+        <option value="Marketing Sale">Marketing</option>
+        <option value="Digital Marketing">Digital Marketing</option>
+      </select>
+      <p className="text-red-500">{errors.category?.message}</p>
 
-        <div>
-          <label className="block font-medium mb-1">Category</label>
-          <select
-            {...register("category")}
-            className="w-full border rounded-lg px-3 py-2"
-          >
-            <option value="">-- Chọn --</option>
-            <option value="Chuyên ngành">Chuyên ngành</option>
-            <option value="Cơ sở">Cơ sở</option>
-            <option value="Đại cương">Đại cương</option>
-          </select>
-          <p className="text-red-500 text-sm">{errors.category?.message}</p>
-        </div>
+      <input {...register("teacher")} placeholder="Teacher" className="border p-2 w-full" />
+      <p className="text-red-500">{errors.teacher?.message}</p>
 
-        <div>
-          <label className="block font-medium mb-1">Teacher</label>
-          <input
-            {...register("teacher")}
-            className="w-full border rounded-lg px-3 py-2"
-          />
-          <p className="text-red-500 text-sm">{errors.teacher?.message}</p>
-        </div>
-
-        <button
-          type="submit"
-          className="px-5 py-2 bg-blue-600 text-white rounded-lg"
-        >
-          Submit
-        </button>
-      </form>
-    </div>
+      <button className="bg-blue-600 text-white px-4 py-2 rounded">
+        Submit
+      </button>
+    </form>
   );
 }
 
