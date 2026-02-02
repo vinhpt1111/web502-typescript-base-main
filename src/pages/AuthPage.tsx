@@ -53,7 +53,6 @@ function AuthPage({ isLogin = false }: Props) {
           }
         );
 
-        // 🔥 CHỈ LƯU USERNAME
         localStorage.setItem("accessToken", data.accessToken);
         localStorage.setItem(
           "user",

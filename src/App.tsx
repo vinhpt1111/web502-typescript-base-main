@@ -15,7 +15,6 @@ function App() {
   const nav = useNavigate();
   const [user, setUser] = useState<User | null>(null);
 
-  // 🔥 LOAD USERNAME
   useEffect(() => {
     const userStr = localStorage.getItem("user");
     if (userStr) {
