@@ -2,7 +2,7 @@
   "courses": [
     {
       "name": "Phạm Thế Vinh",
-      "credit": 3,
+      "credit": 1,
       "category": "IT",
       "teacher": "BBBB",
       "id": 1
@@ -22,18 +22,39 @@
       "id": 3
     },
     {
-      "name": "Lò A Sái",
-      "credit": 4,
-      "category": "Marketing Sale",
-      "teacher": "Nguyễn Văn An",
-      "id": 4
-    },
-    {
-      "name": "Lò A Sinh",
+      "name": "Lò A Vinh",
       "credit": 4,
       "category": "Marketing Sale",
       "teacher": "Nguyễn Văn An",
       "id": 5
+    }
+  ],
+  "users": [
+    {
+      "email": "234@gmail.com",
+      "password": "$2a$10$GZXOBuNUO6GAZprSDUP5O.E/sLY1csHGxXeh7S6kSD9kiNih8VVkK",
+      "id": 1
+    },
+    {
+      "email": "geminivnx2801@gmail.com",
+      "password": "$2a$10$I9ZdPtvD.2ci1ZTFygUJAebe1k.m4NPhCDnONsWPhNRPKSjDj5yG6",
+      "username": "taolanhavua",
+      "confirmPassword": "vinh23102005",
+      "id": 2
+    },
+    {
+      "email": "aaa223@gmail.com",
+      "password": "$2a$10$qVMWJEDoEyJF5QEOuf1OrOduAOruuh8u1RU2QbuWWCsG1ZpTGrD3e",
+      "username": "aaa1a",
+      "confirmPassword": "vinh23102005",
+      "id": 3
+    },
+    {
+      "email": "geminivnx2802@gmail.com",
+      "password": "$2a$10$dpkAOkY81NmEA1F7n51y..fAsA0RCqfRhQhtwEznajm6/V2EnJ5L2",
+      "username": "FoiGo23",
+      "confirmPassword": "vinh23102005",
+      "id": 4
     }
   ]
 }
